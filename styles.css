@@ -5,6 +5,16 @@
     box-sizing: border-box;
 }
 
+#backgroundVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire background */
+    z-index: -1; /* Places the video behind other elements */
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #fafcff;
@@ -120,8 +130,8 @@ textarea {
 }
 
 .inner-box input {
-    width: 100%;
-    padding: 15px;
+    width: 900%;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     outline: none;
