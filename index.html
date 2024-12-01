@@ -1,80 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyRelationship App</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <video autoplay muted loop id="bg-video">
-        <source src="./video1.mp4" type="video/mp4">
-        <source src="./video1.mp4" type="video/webm">
-        Your browser does not support the video tag.
+      <source src="./video1.mp4" type="video/mp4" />
+      <source src="./video1.mp4" type="video/webm" />
+      Your browser does not support the video tag.
     </video>
     <div class="container">
-        <!-- Sign Up Form -->
-        <div class="sign-up">
-            <h1>Sign Up</h1>
-            <form id="sign-up-form">
-                <input type="text" id="name" placeholder="Enter your full name" required>
-                <select id="relationship-status" required>
-                    <option value="single">Single</option>
-                    <option value="in-a-relationship">In a Relationship</option>
-                    <option value="married">Married</option>
-                    <option value="engaged">Engaged</option>
-                    <option value="complicated">Complicated</option>
-                    <option value="situationship">Situationship</option>
-                    <option value="taken">Taken</option>
-                    <option value="ashawo"> An Ashawo</option>
-                </select>
-                <button type="submit">submit</button>
-            </form>
+      <!-- Sign Up Form -->
+      <div class="sign-up">
+        <h1>Sign Up</h1>
+        <form id="sign-up-form">
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your full name"
+            required
+          />
+          <select id="relationship-status" required>
+            <option value="single">Single</option>
+            <option value="in-a-relationship">In a Relationship</option>
+            <option value="married">Married</option>
+            <option value="engaged">Engaged</option>
+            <option value="complicated">Complicated</option>
+            <option value="situationship">Situationship</option>
+            <option value="taken">Taken</option>
+            <option value="ashawo">An Ashawo</option>
+          </select>
+          <button type="submit">submit</button>
+        </form>
+      </div>
+
+      <!-- Dashboard (Initially hidden) -->
+      <div class="dashboard" style="display: none">
+        <h1 id="greeting">Hi, [Name]! Welcome to MyRelationship</h1>
+        <p id="relationship-status-display">You are currently: [Status]</p>
+        <div class="dashboard-sections">
+          <div class="section" id="books">
+            <img src="assets/image copy 2.png" alt="Books" />
+            <h2>Suggested Books</h2>
+          </div>
+          <div class="section" id="journal">
+            <img src="assets/image copy 2.png" alt="Journal" />
+            <h2>Journal</h2>
+          </div>
+          <div class="section" id="talks">
+            <img src="assets/motivational talk.jpg" alt="Motivational Talk" />
+            <h2>Motivational Talk</h2>
+          </div>
+          <div class="section" id="songs">
+            <img src="assets/songs.jpg" alt="Songs" />
+            <h2>Suggested Songs</h2>
+          </div>
+          <div class="section" id="advice">
+            <img src="assets/image.png" alt="Advice" />
+            <h2>Daily Advice</h2>
+          </div>
+          <div class="section" id="weekly">
+            <img src="assets/weekly challenge.jpg" alt="Weekly Challenge" />
+            <h2>Weekly Challenge</h2>
+          </div>
+          <div class="section" id="community">
+            <img src="assets/community.jpg" alt="Community" />
+            <h2>Community</h2>
+          </div>
+          <div class="section" id="goals">
+            <img src="assets/goals.jpg" alt="Goals Tracker" />
+            <h2>Relationship Goals Tracker</h2>
+          </div>
         </div>
 
-        <!-- Dashboard (Initially hidden) -->
-        <div class="dashboard" style="display:none;">
-            <h1 id="greeting">Hi, [Name]! Welcome to MyRelationship</h1>
-            <p id="relationship-status-display">You are currently: [Status]</p>
-            <div class="dashboard-sections">
-                <div class="section" id="books">
-                    <img src="../image copy.png" alt="Books">
-                    <h2>Suggested Books</h2>
-                </div>
-                <div class="section" id="journal">
-                    <img src="../image copy 2.png" alt="Journal">
-                    <h2>Journal</h2>
-                </div>
-                <div class="section" id="motivational-talk">
-                    <img src="../motivational talk.jpg" alt="Motivational Talk">
-                    <h2>Motivational Talk</h2>
-                </div>
-                <div class="section" id="songs">
-                    <img src="../songs.jpg" alt="Songs">
-                    <h2>Suggested Songs</h2>
-                </div>
-                <div class="section" id="advice">
-                    <img src="../image.png" alt="Advice">
-                    <h2>Daily Advice</h2>
-                </div>
-                <div class="section" id="weekly-challenge">
-                    <img src="../weekly challenge.jpg" alt="Weekly Challenge">
-                    <h2>Weekly Challenge</h2>
-                </div>
-                <div class="section" id="community">
-                    <img src="../community.jpg" alt="Community">
-                    <h2>Community</h2>
-                </div>
-                <div class="section" id="goals">
-                    <img src="../goals.jpg" alt="Goals Tracker">
-                    <h2>Relationship Goals Tracker</h2>
-                </div>
-            </div>
-
-            <button id="get-advice">Get Customized Advice</button>
-        </div>
+        <button id="get-advice">Get Customized Advice</button>
+        <div id="advise-display"></div>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

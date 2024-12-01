@@ -6,6 +6,24 @@ document.addEventListener('DOMContentLoaded', function () {
   );
   const dashboard = document.querySelector('.dashboard');
   const signUpPage = document.querySelector('.sign-up');
+  const categories = document.querySelectorAll('.section');
+  let seletedCategory = null;
+  let selectedCategoryName = null;
+  const API_ENDPOINT = 'https://content-api-xrvt.onrender.com/api/content/';
+  const getAdvicebtn = document.getElementById('get-advice');
+
+  categories.forEach((category) => {
+    category.addEventListener('click', function () {
+      if (seletedCategory) {
+        seletedCategory.classList.remove('selected');
+      }
+      seletedCategory = category;
+      seletedCategory.classList.add('selected');
+      selectedCategoryName = category.id;
+      console.log(seletedCategory.id, 'In script');
+      console.log(selectedCategoryName, 'In script');
+    });
+  });
 
   // Sign up form submission logic
   signUpForm.addEventListener('submit', async function (event) {
@@ -15,17 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const relationshipStatus = document.getElementById(
       'relationship-status'
     ).value;
-
-    // Send POST request to back-end
-    // const response = await fetch("http://localhost:3000/signup", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ name, relationshipStatus }),
-    // });
-
-    // const data = await response.json();
 
     if (name && relationshipStatus) {
       // Set greeting and status on the dashboard
@@ -43,7 +50,21 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Handle Get Advice button click
-  document.getElementById('get-advice').addEventListener('click', function () {
-    alert('Get customized advice functionality will go here!');
+  getAdvicebtn.addEventListener('click', function () {
+    // Fetch advice from the API
+    this.innerText = 'Loading....';
+    fetch(`${API_ENDPOINT}${selectedCategoryName}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data, 'Once fetchedd');
+
+        document.getElementById('advise-display').textContent = data;
+      })
+      .catch((error) => {
+        console.error('Error fetching advice:', error);
+      })
+      .finally(() => {
+        this.innerText = 'Get Advice';
+      });
   });
 });
