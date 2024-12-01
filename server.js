@@ -1,45 +1,32 @@
-// server.js
-require('dotenv').config();
 const express = require('express');
-const axios = require('axios');
-const openai = require('openai'); // Or use axios for direct API requests
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const db = require('./database');
 
 const app = express();
 const port = 3000;
 
-// Middleware to parse JSON requests
-app.use(express.json());
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
 
-// Route to interact with OpenAI API
-app.post('/api/generate', async (req, res) => {
-  const { prompt } = req.body;  // Get the user prompt from the request
+// Route to sign up user and store in SQLite database
+app.post('/signup', (req, res) => {
+    const { name, relationshipStatus } = req.body;
 
-  if (!prompt) {
-    return res.status(400).json({ error: 'Prompt is required.' });
-  }
-
-  try {
-    // Make a request to OpenAI API
-    const response = await axios.post('https://api.openai.com/v1/completions', {
-      model: 'text-davinci-003', // Or use "gpt-3.5-turbo" if using GPT-3.5
-      prompt: prompt,
-      max_tokens: 100,
-    }, {
-      headers: {
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, // API key from the .env file
-      }
+    // Insert the user into the database
+    const query = `INSERT INTO users (name, relationship_status) VALUES (?, ?)`;
+    db.run(query, [name, relationshipStatus], function (err) {
+        if (err) {
+            return res.status(500).json({ message: 'Error saving user', error: err });
+        }
+        // Send back the user ID after insertion
+        res.status(200).json({ message: 'User signed up successfully!', userId: this.lastID });
     });
-
-    // Send the response to the frontend
-    res.json({ result: response.data.choices[0].text.trim() });
-  } catch (error) {
-    console.error('Error interacting with OpenAI:', error);
-    res.status(500).json({ error: 'Error with OpenAI API request.' });
-  }
 });
 
-// Start the Express server
+// Start the server
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+    console.log(`Server running on http://localhost:${port}`);
 });
 
