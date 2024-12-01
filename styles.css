@@ -1,125 +1,136 @@
 /* Base Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e898ce;
-    color: #333;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e898ce;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1#greeting {
+  color: white;
 }
 /* Background Video */
 #bg-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1; /* Ensures the video stays behind other elements */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Ensures the video stays behind other elements */
 }
 .container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 /* Sign-Up Form Styles */
 .sign-up {
-    text-align: center;
-    background-color: #edbadd; /* Light pink */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
+  text-align: center;
+  background-color: #edbadd; /* Light pink */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
 }
 
 .sign-up h1 {
-    color: #db46d1; /* Purple */
+  color: #db46d1; /* Purple */
 }
 
-.sign-up input, .sign-up select {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.sign-up input,
+.sign-up select {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.sign-up select {
+  display: block;
+  width: 86%;
+  margin-left: 28px;
 }
 
 .sign-up button {
-    background-color: #9c4e97; /* Purple */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #9c4e97; /* Purple */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Dashboard Styles */
 .dashboard {
-    text-align: center;
-    background-color: rgba(248, 226, 241, 0.6); /* Light pink with transparency */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    width: 80%;
-    display: none; /* Initially hidden */
+  text-align: center;
+  background-color: rgba(248, 226, 241, 0.6); /* Light pink with transparency */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 80%;
+  display: none; /* Initially hidden */
 }
 
 .dashboard h1 {
-    color: #cccccc; /* Purple */
+  color: #cccccc; /* Purple */
 }
 
 #relationship-status-display {
-    font-size: 18px;
-    color: #6a2c77; /* Dark purple */
+  font-size: 18px;
+  color: #6a2c77; /* Dark purple */
 }
 
 /* Dashboard Sections Layout */
 .dashboard-sections {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Display 4 sections per row */
-    gap: 20px;
-    margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Display 4 sections per row */
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .section {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-    overflow: hidden; /* Ensures images are well-contained */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  overflow: hidden; /* Ensures images are well-contained */
 }
 
 .section:hover {
-    background-color: #e8c0e9; /* Lighter purple */
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  background-color: #e8c0e9; /* Lighter purple */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .section img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .section h2 {
-    margin-top: 10px;
-    color: #9c4e97;
-    font-size: 18px;
-    font-weight: bold;
+  margin-top: 10px;
+  color: #9c4e97;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 /* Button Styles */
 button {
-    background-color: #9c4e97; /* Purple */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
+  background-color: #9c4e97; /* Purple */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
 }
